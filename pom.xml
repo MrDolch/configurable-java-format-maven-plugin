@@ -16,19 +16,20 @@
     <repositories>
         <repository>
             <id>central</id>
-            <url>https://repo.maven.apache.org/maven2</url>
+            <url>https://repo1.maven.org/maven2</url>
         </repository>
         <repository>
-            <id>github</id>
-            <url>https://maven.pkg.github.com/MrDolch/configurable-google-java-format</url>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
         </repository>
     </repositories>
 
     <dependencies>
         <dependency>
-            <groupId>com.github.mrdolch.googlejavaformat</groupId>
+            <!-- via jitpack.io -->
+            <groupId>com.github.mrdolch</groupId>
             <artifactId>configurable-google-java-format</artifactId>
-            <version>2025.21.2</version>
+            <version>2025.21.7</version>
         </dependency>
         <dependency>
             <groupId>org.apache.maven</groupId>
