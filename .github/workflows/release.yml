@@ -22,5 +22,5 @@ jobs:
         run: mvn verify -DskipTests=true -Dmaven.javadoc.skip=true -B -V
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "core/target/configurable-google-java-format-maven-plugin-*.jar"
+          artifacts: "target/configurable-google-java-format-maven-plugin-*.jar"
           bodyFile: "release.md"
