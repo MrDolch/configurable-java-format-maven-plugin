@@ -10,7 +10,7 @@
 
     <scm>
         <url>https://github.com/mrdolch/configurable-java-format-maven-plugin</url>
-        <connection>scm:git:https://github.com/mrdolch/configurable-java-format.git-maven-plugin</connection>
+        <connection>scm:git:https://github.com/mrdolch/configurable-java-format-maven-plugin.git</connection>
         <tag>HEAD</tag>
     </scm>
 
