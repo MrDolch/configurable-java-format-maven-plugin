@@ -2,34 +2,27 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>tech.dolch.formatter</groupId>
-    <artifactId>configurable-google-java-format-maven-plugin</artifactId>
-    <version>2025.1.0</version>
+    <groupId>io.github.mrdolch.formatter</groupId>
+    <artifactId>configurable-java-format-maven-plugin</artifactId>
+    <version>2025.1.1-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
+    <name>Configurable Java Format Maven Plugin</name>
 
-    <name>Configurable Google Java Format Maven Plugin</name>
+    <scm>
+        <url>https://github.com/mrdolch/configurable-java-format-maven-plugin</url>
+        <connection>scm:git:https://github.com/mrdolch/configurable-java-format.git-maven-plugin</connection>
+        <tag>HEAD</tag>
+    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>central</id>
-            <url>https://repo1.maven.org/maven2</url>
-        </repository>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-    </repositories>
-
     <dependencies>
         <dependency>
-            <!-- via jitpack.io -->
-            <groupId>com.github.mrdolch</groupId>
-            <artifactId>configurable-google-java-format</artifactId>
-            <version>2025.21.7</version>
+            <groupId>io.github.mrdolch.formatter</groupId>
+            <artifactId>configurable-java-format</artifactId>
+            <version>2025.21.11</version>
         </dependency>
         <dependency>
             <groupId>org.apache.maven</groupId>
@@ -121,6 +114,65 @@
                                     <goal>install</goal>
                                     <goal>integration-test</goal>
                                     <goal>verify</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>sonatype-oss-release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <version>0.7.0</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <autoPublish>false</autoPublish>
+                            <deploymentName>${project.artifactId}:${project.version}</deploymentName>
+                            <waitUntil>validated</waitUntil>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <configuration>
+                            <doclint>none</doclint>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>3.2.7</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
                                 </goals>
                             </execution>
                         </executions>

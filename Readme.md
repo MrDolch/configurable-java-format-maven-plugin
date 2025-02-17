@@ -1,4 +1,4 @@
-# Configurable Google Java Format Maven Plugin
+# Configurable Java Format Maven Plugin
 
 A Maven plugin for automated source code formatting using the Google Java Formatter, with configurable options.
 
@@ -10,9 +10,9 @@ Add the plugin to your `pom.xml`:
 <build>
     <plugins>
         <plugin>
-            <groupId>tech.dolch.formatter</groupId>
-            <artifactId>configurable-google-java-format-maven-plugin</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>io.github.mrdolch.formatter</groupId>
+            <artifactId>configurable-java-format-maven-plugin</artifactId>
+            <version>2025.21.1</version>
         </plugin>
     </plugins>
 </build>
@@ -21,7 +21,7 @@ Add the plugin to your `pom.xml`:
 ```xml
 <repository>
     <id>github</id>
-    <url>https://maven.pkg.github.com/MrDolch/configurable-google-java-format-maven-plugin</url>
+    <url>https://maven.pkg.github.com/MrDolch/configurable-java-format-maven-plugin</url>
 </repository>
 ```
 
@@ -31,14 +31,28 @@ Add the plugin to your `pom.xml`:
 Checks if the source code conforms to the formatting rules. The build will fail if the formatting is incorrect.
 
 ```bash
-mvn tech.dolch.formatter:configurable-google-java-format-maven-plugin:check
+export MAVEN_OPTS="--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED
+  --add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED
+  --add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED
+  --add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED
+  --add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED
+  --add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED"
+
+mvn io.github.mrdolch.formatter:configurable-java-format-maven-plugin:check
 ```
 
 ### `format`
 Formats the source code according to the specified parameters.
 
 ```bash
-mvn tech.dolch.formatter:configurable-google-java-format-maven-plugin:format
+export MAVEN_OPTS="--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED
+  --add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED
+  --add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED
+  --add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED
+  --add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED
+  --add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED"
+
+mvn io.github.mrdolch.formatter:configurable-java-format-maven-plugin:format
 ```
 
 ## Configuration Parameters
@@ -59,9 +73,9 @@ mvn tech.dolch.formatter:configurable-google-java-format-maven-plugin:format
 <build>
     <plugins>
         <plugin>
-            <groupId>tech.dolch.formatter</groupId>
-            <artifactId>configurable-google-java-format-maven-plugin</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>io.github.mrdolch.formatter</groupId>
+            <artifactId>configurable-format-maven-plugin</artifactId>
+            <version>2025.21.1</version>
             <executions>
                 <execution>
                     <goals>
