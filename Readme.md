@@ -109,9 +109,9 @@ mvn io.github.mrdolch.formatter:configurable-java-format-maven-plugin:format
 
 [ci_link]: https://github.com/mrdolch/configurable-java-format-maven-plugin/actions/maven-verify.yml
 
-[maven_img]: https://maven-badges.herokuapp.com/maven-central/io.github.mrdolch.formatter/configurable-format-maven-plugin/badge.svg
+[maven_img]: https://maven-badges.herokuapp.com/maven-central/io.github.mrdolch.formatter/configurable-java-format-maven-plugin/badge.svg
 
-[maven_link]: https://maven-badges.herokuapp.com/maven-central/io.github.mrdolch.formatter/configurable-format-maven-plugin
+[maven_link]: https://maven-badges.herokuapp.com/maven-central/io.github.mrdolch.formatter/configurable-java-format-maven-plugin
 
 [license_img]: https://img.shields.io/badge/license-Apache%202.0-blue.svg
 
