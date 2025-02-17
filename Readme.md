@@ -1,6 +1,7 @@
 # Configurable Java Format Maven Plugin
 
 [![mvn verify][ci_img]][ci_link]
+[![coverity][coverity_img]][coverity_link]
 [![Maven Central][maven_img]][maven_link]
 [![Apache License][license_img]][license_link]
 
@@ -108,6 +109,10 @@ mvn io.github.mrdolch.formatter:configurable-java-format-maven-plugin:format
 [ci_img]: https://github.com/mrdolch/configurable-java-format-maven-plugin/actions/workflows/maven-verify.yml/badge.svg
 
 [ci_link]: https://github.com/mrdolch/configurable-java-format-maven-plugin/actions/maven-verify.yml
+
+[coverity_link]: https://scan.coverity.com/projects/configurable-java-format-maven-plugin
+
+[coverity_img]: https://scan.coverity.com/projects/31384/badge.svg
 
 [maven_img]: https://maven-badges.herokuapp.com/maven-central/io.github.mrdolch.formatter/configurable-java-format-maven-plugin/badge.svg
 
