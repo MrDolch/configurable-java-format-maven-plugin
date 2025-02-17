@@ -7,12 +7,6 @@
     <packaging>maven-plugin</packaging>
     <name>Configurable Java Format Maven Plugin</name>
 
-    <scm>
-        <url>https://github.com/mrdolch/configurable-java-format-maven-plugin</url>
-        <connection>scm:git:https://github.com/mrdolch/configurable-java-format-maven-plugin.git</connection>
-        <tag>HEAD</tag>
-    </scm>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -180,4 +174,38 @@
             </build>
         </profile>
     </profiles>
+
+    <description>
+        A Maven plugin for automated source code formatting using the Google Java Formatter, with configurable options.
+    </description>
+
+    <url>https://github.com/MrDolch/configurable-java-format-maven-plugin</url>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>dolch</id>
+            <name>Christoph Dolch</name>
+            <email>mrdolch@dolch.tech</email>
+            <roles>
+                <role>owner</role>
+                <role>developer</role>
+            </roles>
+            <timezone>+1</timezone>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/mrdolch/configurable-java-format-maven-plugin</url>
+        <connection>scm:git:https://github.com/mrdolch/configurable-java-format-maven-plugin.git</connection>
+        <tag>HEAD</tag>
+    </scm>
+
 </project>
