@@ -31,11 +31,3 @@ jobs:
 
       - name: Build with Maven
         run: ./mvnw -B -V -e "-Dstyle.color=always" verify
-
-      - name: View IT build log on failure
-        uses: actions/upload-artifact@v4
-        if: ${{ failure() }}
-        with:
-          name: build-logs-java-${{ matrix.java }}-os-${{ matrix.os }}
-          path: target/its/**/build.log
-          if-no-files-found: ignore
