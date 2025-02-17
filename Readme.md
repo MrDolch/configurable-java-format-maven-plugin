@@ -1,5 +1,9 @@
 # Configurable Java Format Maven Plugin
 
+[![mvn verify][ci_img]][ci_link]
+[![Maven Central][maven_img]][maven_link]
+[![Apache License][license_img]][license_link]
+
 A Maven plugin for automated source code formatting using the Google Java Formatter, with configurable options.
 
 ## Installation
@@ -7,6 +11,7 @@ A Maven plugin for automated source code formatting using the Google Java Format
 Add the plugin to your `pom.xml`:
 
 ```xml
+
 <build>
     <plugins>
         <plugin>
@@ -19,6 +24,7 @@ Add the plugin to your `pom.xml`:
 ```
 
 ```xml
+
 <repository>
     <id>github</id>
     <url>https://maven.pkg.github.com/MrDolch/configurable-java-format-maven-plugin</url>
@@ -28,6 +34,7 @@ Add the plugin to your `pom.xml`:
 ## Goals
 
 ### `check`
+
 Checks if the source code conforms to the formatting rules. The build will fail if the formatting is incorrect.
 
 ```bash
@@ -42,6 +49,7 @@ mvn io.github.mrdolch.formatter:configurable-java-format-maven-plugin:check
 ```
 
 ### `format`
+
 Formats the source code according to the specified parameters.
 
 ```bash
@@ -70,6 +78,7 @@ mvn io.github.mrdolch.formatter:configurable-java-format-maven-plugin:format
 ## Example Configuration
 
 ```xml
+
 <build>
     <plugins>
         <plugin>
@@ -96,4 +105,14 @@ mvn io.github.mrdolch.formatter:configurable-java-format-maven-plugin:format
 </build>
 ```
 
+[ci_img]: https://github.com/mrdolch/configurable-java-format-maven-plugin/actions/workflows/maven-verify.yml/badge.svg
 
+[ci_link]: https://github.com/mrdolch/configurable-java-format-maven-plugin/actions/maven-verify.yml
+
+[maven_img]: https://maven-badges.herokuapp.com/maven-central/io.github.mrdolch.formatter/configurable-format-maven-plugin/badge.svg
+
+[maven_link]: https://maven-badges.herokuapp.com/maven-central/io.github.mrdolch.formatter/configurable-format-maven-plugin
+
+[license_img]: https://img.shields.io/badge/license-Apache%202.0-blue.svg
+
+[license_link]: https://github.com/revelc/formatter-maven-plugin/blob/main/LICENSE
