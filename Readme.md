@@ -7,6 +7,12 @@
 
 A Maven plugin for automated source code formatting using the Google Java Formatter, with configurable options.
 
+This software is provided WITHOUT ANY WARRANTY, and is available under the Apache License, Version 2. Any code loss
+caused by using this plugin is not the responsibility of the author(s). Be sure to use some source repository management
+system such as GIT before using this plugin.
+
+Contributions are welcome.
+
 ## Installation
 
 Add the plugin to your `pom.xml`:

@@ -1,9 +1,13 @@
 package tech.dolch.formatter;
 
+import static difflib.DiffUtils.generateUnifiedDiff;
+import static java.nio.charset.Charset.defaultCharset;
+
 import com.google.googlejavaformat.java.Main;
 import difflib.DiffUtils;
 import difflib.Patch;
 import java.io.*;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -17,6 +21,7 @@ import org.apache.maven.plugins.annotations.Parameter;
 abstract class MojoImplementation extends AbstractMojo {
   private @Parameter(defaultValue = "${project.build.sourceDirectory}", readonly = true) File
       sourceDirectory;
+  private @Parameter(defaultValue = "${project.build.sourceEncoding}") String encoding;
 
   private @Parameter(property = "aosp", defaultValue = "false") boolean aosp;
 
@@ -51,10 +56,11 @@ abstract class MojoImplementation extends AbstractMojo {
 
   void checkFormat() throws MojoExecutionException {
     getLog().info("Source Directory: " + sourceDirectory.getPath());
+    Charset sourceFileEncoding = encoding == null ? defaultCharset() : Charset.forName(encoding);
     try {
       for (File javaFile : getAllJavaFiles(sourceDirectory)) {
         getLog().info("Checking: " + javaFile.getAbsolutePath());
-        String expected = Files.readString(Path.of(javaFile.getAbsolutePath()));
+        String expected = Files.readString(Path.of(javaFile.getAbsolutePath()), sourceFileEncoding);
         String formattedSource = callFormatter(javaFile, toArgs(false));
         if (!expected.equals(formattedSource)) {
           Patch<String> patch =
@@ -62,8 +68,7 @@ abstract class MojoImplementation extends AbstractMojo {
           String diff =
               String.join(
                   "\n",
-                  DiffUtils.generateUnifiedDiff(
-                      "Expected", "Actual", expected.lines().toList(), patch, 2));
+                  generateUnifiedDiff("Expected", "Actual", expected.lines().toList(), patch, 2));
           throw new MojoFailureException(
               javaFile.getPath() + " is not formatted correctly\n" + diff);
         }
